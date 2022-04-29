@@ -1,23 +1,30 @@
 import "./App.scss";
-import { Routes, Route, Navigation } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Home from "./components/Home";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./components/globalStyles";
+import { darkTheme, lightTheme } from "./styles/theme";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
   return (
-    <div>
+    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+      <GlobalStyles />
       <Routes>
-        <Route path="*" element={<Home />} />
-        <Route path="products" element={<Products />}>
-          <Route path=":id" element={<ProductDetails />} />
+        <Route path="/" element={<Home theme={theme} setTheme={setTheme} />}>
+          <Route path="products" element={<Products />}>
+            <Route path=":id" element={<ProductDetails />} />
+          </Route>
+          <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
-        <Route path="cart" element={<Cart />} />
-        <Route path="checkout" element={<Checkout />} />
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 }
 
