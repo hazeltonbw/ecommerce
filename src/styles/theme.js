@@ -11,6 +11,9 @@ export const lightTheme = {
     },
   },
   iconFill: "#fff",
+  product: {
+    border: "rgb(0 0 0 / 10%)",
+  },
 };
 
 export const darkTheme = {
@@ -26,4 +29,7 @@ export const darkTheme = {
     },
   },
   iconFill: "#22272e",
+  product: {
+    border: "rgb(245 245 245 / 10%)",
+  },
 };

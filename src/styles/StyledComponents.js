@@ -1,10 +1,20 @@
 import styled from "styled-components";
 import { MdDarkMode } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
-export const Container = styled.div`
+import { NavLink } from "react-router-dom";
+
+export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0px 0.5rem;
+  align-items: center;
+  border: 1px solid ${({ theme }) => theme.product.border};
+  gap: 10px;
+  text-align: center;
+
+  > * {
+    cursor: pointer;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -14,11 +24,11 @@ export const Nav = styled.nav`
   padding: 0.8rem 111px;
 `;
 
-export const Logo = styled.a`
+export const StyledLink = styled(NavLink)`
   font-family: "Lobster", sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: ${({ theme }) => theme.nav.text};
+  color: ${(props) => (props.nav ? props.theme.nav.text : props.theme.text)};
   margin-right: 10px;
   text-decoration: none;
 `;
@@ -61,4 +71,59 @@ export const ColorTheme = styled(MdDarkMode)`
 
 export const CartIcon = styled(IoCartOutline)`
   color: ${({ theme }) => theme.iconFill};
+`;
+
+export const ProductsList = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 2rem 111px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  ${StyledLink} {
+    font-family: inherit;
+    font-size: 1rem;
+  }
+`;
+
+export const ImgWrapper = styled.div`
+  width: 300px;
+  height: 300px;
+`;
+
+export const Rating = styled.span`
+  color: orange;
+
+  // Span inside is count of ratings
+  span {
+    color: white;
+  }
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  padding: 0.5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Card = styled.div`
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${StyledLink} {
+    border: 1px solid ${({ theme }) => theme.text};
+    border-radius: 0.5rem;
+    margin-top: 10px;
+    padding: 0.5rem;
+  }
 `;

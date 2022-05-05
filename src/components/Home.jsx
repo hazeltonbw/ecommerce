@@ -1,13 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import {
   Nav,
-  Logo,
+  StyledLink,
   Form,
   Input,
   Button,
   ColorTheme,
   CartIcon,
-} from "./StyledComponents";
+} from "../styles/StyledComponents";
 import { FaSearch } from "react-icons/fa";
 const Home = ({ theme, setTheme }) => {
   const handleSubmit = (e) => {
@@ -16,7 +16,9 @@ const Home = ({ theme, setTheme }) => {
   return (
     <>
       <Nav>
-        <Logo href="#">Shoppo</Logo>
+        <StyledLink nav to="/">
+          Shoppo
+        </StyledLink>
         <Form onSubmit={handleSubmit}>
           <Input type="search" placeholder="Search for items" autoFocus></Input>
           <Button type="submit">
