@@ -1,25 +1,25 @@
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { numToStar } from "../helpers/numToStar";
-import {
-  LinkButton,
-  Button,
-  AddToCart,
-  CartIcon,
-} from "../styles/StyledComponents";
+import { addProductToCart } from "../store/commerceSlice";
+import { LinkButton, AddToCart, CartIcon } from "../styles/StyledComponents";
 import {
   ProductContainer,
   ImgWrapper,
   Rating,
 } from "../styles/StyledComponents";
+import Skeleton from "react-loading-skeleton";
+
 function Product({ product }) {
   // setProductId(product.id);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleClick = () => {
     navigate(`${product.id}`);
   };
 
   const handleAddToCart = () => {
-    console.log("hi");
+    dispatch(addProductToCart(product));
   };
 
   return (
@@ -29,7 +29,8 @@ function Product({ product }) {
       </ImgWrapper>
       <h3 onClick={handleClick}>{product.title}</h3>
       <Rating onClick={handleClick}>
-        {numToStar(product.rating.rate)} <span>{product.rating.count}</span>
+        {numToStar(product.rating.rate)}
+        <span>{product.rating.count}</span>
       </Rating>
       <h4>${product.price.toFixed(2)}</h4>
       <LinkButton to={`/products/${product.id}`}>View more details</LinkButton>

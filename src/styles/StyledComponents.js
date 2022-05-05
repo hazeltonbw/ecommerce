@@ -8,7 +8,10 @@ export const StyledLink = styled(NavLink)`
   font-size: 2rem;
   text-align: center;
   color: ${(props) => (props.nav ? props.theme.nav.text : props.theme.text)};
+  border: ${({ nav }) => (nav ? "none" : "1px solid white")};
   text-decoration: none;
+  border-radius: ${({ nav }) => (nav ? "0" : ".5rem")};
+  padding: ${({ nav }) => (nav ? "0" : ".5rem")};
 `;
 
 export const LinkButton = styled(Link)`
@@ -22,18 +25,18 @@ export const LinkButton = styled(Link)`
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   padding: 0px 0.5rem;
   align-items: center;
   border: 1px solid ${({ theme }) => theme.product.border};
   gap: 10px;
   text-align: center;
-
   a,
   img,
   h3,
   svg,
   button {
-    cursor: pointer;
+    cursor: ${({ cursor }) => (cursor ? "pointer" : "inherit")};
   }
 
   img {
@@ -91,13 +94,14 @@ export const Button = styled.button`
 `;
 
 export const AddToCart = styled.button`
-  border: 1px solid #fff;
+  border: 1px solid ${({ theme }) => theme.text};
   border-radius: 0.5rem;
   padding: 0.5rem;
   background: ${({ theme }) => theme.body};
-  color: #d0d0ff;
+  color: ${({ theme }) => theme.linkColor};
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const ColorTheme = styled(MdDarkMode)`
@@ -148,4 +152,19 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const TextWrapper = styled.div`
+  width: 45ch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+`;
+
+export const Quantity = styled.input`
+  padding: 0.5rem 0px 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
 `;

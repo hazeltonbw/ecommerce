@@ -4,8 +4,9 @@ const initialState = {
   error: false,
   isLoading: false,
   products: [],
-  cart: [],
+  cart: {},
   product: {},
+  quantity: 0,
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -38,12 +39,21 @@ const { actions, reducer } = createSlice({
   name: "commerceSlice",
   initialState: initialState,
   reducers: {
-    addItemToCart: (state, action) => {
-      state.cart.push(action.payload);
+    addProductToCart: (state, action) => {
+      for (let i = 0; i < state.quantity; i++) {
+        // state.cart.push(action.payload);
+        state.cart[action.payload.id] = {
+          ...action.payload,
+          quantity: state.quantity,
+        };
+      }
+    },
+    setQuantity: (state, action) => {
+      state.quantity = action.payload;
     },
   },
   extraReducers: (builder) => {
-    // fetchProducts fulfilled/pending/rejected
+    // fetchProducts lifecycle
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.products = action.payload;
       state.isLoading = false;
@@ -56,24 +66,10 @@ const { actions, reducer } = createSlice({
       state.error = true;
       state.isLoading = false;
     });
-
-    // fetchProduct fulfilled/pending/rejected
-    builder.addCase(fetchProduct.fulfilled, (state, action) => {
-      state.product = action.payload;
-      state.isLoading = false;
-    });
-    builder.addCase(fetchProduct.pending, (state) => {
-      state.isLoading = true;
-      state.error = false;
-    });
-    builder.addCase(fetchProduct.rejected, (state) => {
-      state.error = true;
-      state.isLoading = false;
-    });
   },
 });
 
-export const { addItemToCart } = actions;
+export const { addProductToCart, setQuantity } = actions;
 
 export const selectProducts = (state) => state.commerceSlice.products;
 export default reducer;

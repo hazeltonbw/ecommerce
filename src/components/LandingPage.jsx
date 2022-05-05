@@ -1,10 +1,4 @@
-import {
-  Card,
-  Flex,
-  Hero,
-  ProductContainer,
-  StyledLink,
-} from "../styles/StyledComponents";
+import { Card, Flex, StyledLink } from "../styles/StyledComponents";
 export default function LandingPage() {
   return (
     <>

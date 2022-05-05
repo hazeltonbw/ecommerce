@@ -14,6 +14,7 @@ export const lightTheme = {
   product: {
     border: "rgb(0 0 0 / 10%)",
   },
+  linkColor: "#0000a9",
 };
 
 export const darkTheme = {
@@ -32,4 +33,5 @@ export const darkTheme = {
   product: {
     border: "rgb(245 245 245 / 10%)",
   },
+  linkColor: "#d4d4f9",
 };
