@@ -1,16 +1,21 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { numToStar } from "../helpers/numToStar";
-import { addProductToCart } from "../store/commerceSlice";
-import { LinkButton, AddToCart, CartIcon } from "../styles/StyledComponents";
+import {
+  addProductToCart,
+  removeProductFromCart,
+  setQuantity,
+} from "../store/commerceSlice";
+import { LinkButton, EditCart, CartIcon } from "../styles/StyledComponents";
 import {
   ProductContainer,
   ImgWrapper,
+  Flex,
+  Quantity,
   Rating,
 } from "../styles/StyledComponents";
-import Skeleton from "react-loading-skeleton";
 
-function Product({ product }) {
+function Product({ product, deleteProductFromCart }) {
   // setProductId(product.id);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +25,21 @@ function Product({ product }) {
 
   const handleAddToCart = () => {
     dispatch(addProductToCart(product));
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeProductFromCart(product.id));
+  };
+
+  const handleChange = (e) => {
+    dispatch(setQuantity(e.target.value));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //console.log(e.target[0].value);
+    dispatch(setQuantity(e.target[0].value));
+    handleAddToCart();
   };
 
   return (
@@ -33,15 +53,36 @@ function Product({ product }) {
         <span>{product.rating.count}</span>
       </Rating>
       <h4>${product.price.toFixed(2)}</h4>
-      <LinkButton to={`/products/${product.id}`}>View more details</LinkButton>
-      <AddToCart
-        onClick={() => {
-          handleAddToCart();
-        }}
-      >
-        Add to cart
-        <CartIcon size="1.2rem" />
-      </AddToCart>
+      {!deleteProductFromCart ? (
+        <>
+          <LinkButton to={`/products/${product.id}`}>
+            View more details
+          </LinkButton>
+          <EditCart
+            onClick={() => {
+              handleAddToCart();
+            }}
+          >
+            Add to cart
+            <CartIcon size="1.2rem" />
+          </EditCart>
+        </>
+      ) : (
+        <>
+          <Flex>
+            <h3>Quantity: </h3>
+            <span>&nbsp;{product.quantity}</span>
+          </Flex>
+          <EditCart
+            onClick={() => {
+              handleRemoveFromCart();
+            }}
+          >
+            Remove from cart
+            <CartIcon size="1.2rem" />
+          </EditCart>
+        </>
+      )}
     </ProductContainer>
   );
 }

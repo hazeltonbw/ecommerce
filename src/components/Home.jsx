@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import {
   Nav,
   StyledLink,
@@ -32,9 +32,9 @@ const Home = ({ theme, setTheme }) => {
         {/* <MdOutlineDarkMode size="2rem" /> */}
         {/* <MdDarkMode size="2rem" /> */}
         {/* <IoCartOutline size="2rem" /> */}
-        <Link to="/cart">
+        <NavLink to="/cart">
           <CartIcon nav size="2rem" />
-        </Link>
+        </NavLink>
       </Nav>
       <main>
         <Outlet />

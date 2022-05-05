@@ -93,7 +93,7 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.nav.searchForm.background};
 `;
 
-export const AddToCart = styled.button`
+export const EditCart = styled.button`
   border: 1px solid ${({ theme }) => theme.text};
   border-radius: 0.5rem;
   padding: 0.5rem;

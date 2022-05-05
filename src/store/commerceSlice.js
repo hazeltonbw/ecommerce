@@ -6,7 +6,7 @@ const initialState = {
   products: [],
   cart: {},
   product: {},
-  quantity: 0,
+  quantity: 1,
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -51,6 +51,10 @@ const { actions, reducer } = createSlice({
     setQuantity: (state, action) => {
       state.quantity = action.payload;
     },
+    removeProductFromCart: (state, action) => {
+      state.cart[action.payload] = {};
+      delete state.cart[action.payload];
+    },
   },
   extraReducers: (builder) => {
     // fetchProducts lifecycle
@@ -69,7 +73,8 @@ const { actions, reducer } = createSlice({
   },
 });
 
-export const { addProductToCart, setQuantity } = actions;
+export const { addProductToCart, setQuantity, removeProductFromCart } = actions;
 
 export const selectProducts = (state) => state.commerceSlice.products;
+export const selectCart = (state) => state.commerceSlice.cart;
 export default reducer;

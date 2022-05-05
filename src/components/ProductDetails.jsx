@@ -10,7 +10,7 @@ import {
   ImgWrapper,
   TextWrapper,
   Rating,
-  AddToCart,
+  EditCart,
   CartIcon,
   Flex,
   Quantity,
@@ -60,10 +60,10 @@ const ProductDetails = () => {
               required
             ></Quantity>
 
-            <AddToCart type="submit">
+            <EditCart type="submit">
               Add to cart
               <CartIcon size="1.2rem" />
-            </AddToCart>
+            </EditCart>
           </form>
         </Flex>
       </TextWrapper>

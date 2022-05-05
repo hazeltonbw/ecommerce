@@ -5,3 +5,7 @@ form {
     display: flex;
     flex-direction: row;
 }
+
+a.active > svg {
+    color: green;
+}
