@@ -15,11 +15,13 @@ import {
   Rating,
 } from "../styles/StyledComponents";
 
-function Product({ product, deleteProductFromCart }) {
+function Product({ product, showingCart }) {
   // setProductId(product.id);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClick = () => {
+    // janky fix to not navigate out of page while viewing cart
+    if (showingCart) return;
     navigate(`${product.id}`);
   };
 
@@ -53,7 +55,7 @@ function Product({ product, deleteProductFromCart }) {
         <span>{product.rating.count}</span>
       </Rating>
       <h4>${product.price.toFixed(2)}</h4>
-      {!deleteProductFromCart ? (
+      {!showingCart ? (
         <>
           <LinkButton to={`/products/${product.id}`}>
             View more details

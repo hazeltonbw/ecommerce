@@ -7,14 +7,13 @@ import Product from "./Product";
 const Products = () => {
   const dispatch = useDispatch();
 
+  const products = useSelector(selectProducts);
+  const { error, isLoading } = useSelector((state) => state.commerceSlice);
   useEffect(() => {
     // Don't refetch products we already have
     if (products.length !== 0) return;
     dispatch(fetchProducts());
-  }, [dispatch]);
-
-  const products = useSelector(selectProducts);
-  const { error, isLoading } = useSelector((state) => state.commerceSlice);
+  }, [dispatch, products.length]);
 
   if (error) {
     return <h1 style={{ textAlign: "center" }}>Error!</h1>;

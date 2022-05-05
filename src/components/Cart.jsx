@@ -13,11 +13,7 @@ const Cart = () => {
     <ProductsList>
       {Object.keys(cart).map((productId) => {
         return (
-          <Product
-            product={cart[productId]}
-            key={productId}
-            deleteProductFromCart
-          />
+          <Product product={cart[productId]} key={productId} showingCart />
         );
       })}
     </ProductsList>

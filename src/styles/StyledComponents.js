@@ -8,7 +8,7 @@ export const StyledLink = styled(NavLink)`
   font-size: 2rem;
   text-align: center;
   color: ${(props) => (props.nav ? props.theme.nav.text : props.theme.text)};
-  border: ${({ nav }) => (nav ? "none" : "1px solid white")};
+  border: ${({ nav, theme }) => (nav ? "none" : `1px solid ${theme.text}`)};
   text-decoration: none;
   border-radius: ${({ nav }) => (nav ? "0" : ".5rem")};
   padding: ${({ nav }) => (nav ? "0" : ".5rem")};
@@ -19,7 +19,7 @@ export const LinkButton = styled(Link)`
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
-  color: #d0d0ff;
+  color: ${({ theme }) => theme.linkColor};
 `;
 
 export const ProductContainer = styled.div`
