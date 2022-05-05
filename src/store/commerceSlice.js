@@ -76,5 +76,4 @@ const { actions, reducer } = createSlice({
 export const { addItemToCart } = actions;
 
 export const selectProducts = (state) => state.commerceSlice.products;
-
 export default reducer;
