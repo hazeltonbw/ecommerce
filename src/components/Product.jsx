@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { numToStar } from "../helpers/numToStar";
-import { StyledLink } from "../styles/StyledComponents";
+import {
+  LinkButton,
+  Button,
+  AddToCart,
+  CartIcon,
+} from "../styles/StyledComponents";
 import {
   ProductContainer,
   ImgWrapper,
@@ -13,17 +18,29 @@ function Product({ product }) {
     navigate(`${product.id}`);
   };
 
+  const handleAddToCart = () => {
+    console.log("hi");
+  };
+
   return (
-    <ProductContainer onClick={handleClick}>
-      <ImgWrapper>
+    <ProductContainer>
+      <ImgWrapper onClick={handleClick}>
         <img src={product.image} alt={product.title} />
       </ImgWrapper>
-      <h3>{product.title}</h3>
-      <Rating>
+      <h3 onClick={handleClick}>{product.title}</h3>
+      <Rating onClick={handleClick}>
         {numToStar(product.rating.rate)} <span>{product.rating.count}</span>
       </Rating>
       <h4>${product.price.toFixed(2)}</h4>
-      <StyledLink to={`/products/${product.id}`}>View more details</StyledLink>
+      <LinkButton to={`/products/${product.id}`}>View more details</LinkButton>
+      <AddToCart
+        onClick={() => {
+          handleAddToCart();
+        }}
+      >
+        Add to cart
+        <CartIcon size="1.2rem" />
+      </AddToCart>
     </ProductContainer>
   );
 }

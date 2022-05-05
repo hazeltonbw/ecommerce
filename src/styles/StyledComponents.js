@@ -1,7 +1,23 @@
 import styled from "styled-components";
 import { MdDarkMode } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
+export const StyledLink = styled(NavLink)`
+  font-family: "Lobster", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: ${(props) => (props.nav ? props.theme.nav.text : props.theme.text)};
+  text-decoration: none;
+`;
+
+export const LinkButton = styled(Link)`
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #d0d0ff;
+`;
 
 export const ProductContainer = styled.div`
   display: flex;
@@ -12,8 +28,26 @@ export const ProductContainer = styled.div`
   gap: 10px;
   text-align: center;
 
-  > * {
+  a,
+  img,
+  h3,
+  svg,
+  button {
     cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  ${LinkButton} {
+    border: 1px solid ${({ theme }) => theme.text};
+    border-radius: 0.5rem;
+    padding: 0.5rem;
   }
 `;
 
@@ -22,15 +56,6 @@ export const Nav = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.nav.background};
   padding: 0.8rem 111px;
-`;
-
-export const StyledLink = styled(NavLink)`
-  font-family: "Lobster", sans-serif;
-  font-size: 2rem;
-  text-align: center;
-  color: ${(props) => (props.nav ? props.theme.nav.text : props.theme.text)};
-  margin-right: 10px;
-  text-decoration: none;
 `;
 
 export const Form = styled.form`
@@ -65,12 +90,23 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.nav.searchForm.background};
 `;
 
+export const AddToCart = styled.button`
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background: ${({ theme }) => theme.body};
+  color: #d0d0ff;
+  display: flex;
+  align-items: center;
+`;
+
 export const ColorTheme = styled(MdDarkMode)`
   fill: ${({ theme }) => theme.iconFill};
 `;
 
 export const CartIcon = styled(IoCartOutline)`
-  color: ${({ theme }) => theme.iconFill};
+  color: ${(props) => (props.nav ? props.theme.iconFill : props.theme.text)};
+  text-align: center;
 `;
 
 export const ProductsList = styled.section`
@@ -78,13 +114,6 @@ export const ProductsList = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   padding: 2rem 111px;
-
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
 
   ${StyledLink} {
     font-family: inherit;
@@ -119,11 +148,4 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${StyledLink} {
-    border: 1px solid ${({ theme }) => theme.text};
-    border-radius: 0.5rem;
-    margin-top: 10px;
-    padding: 0.5rem;
-  }
 `;

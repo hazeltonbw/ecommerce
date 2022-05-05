@@ -33,7 +33,7 @@ const Home = ({ theme, setTheme }) => {
         {/* <MdDarkMode size="2rem" /> */}
         {/* <IoCartOutline size="2rem" /> */}
         <Link to="/cart">
-          <CartIcon size="2rem" />
+          <CartIcon nav size="2rem" />
         </Link>
       </Nav>
       <main>

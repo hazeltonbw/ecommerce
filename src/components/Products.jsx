@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
 import { fetchProducts, selectProducts } from "../store/commerceSlice";
 import { ProductsList } from "../styles/StyledComponents";
 import Product from "./Product";
@@ -25,7 +24,7 @@ const Products = () => {
     <>
       <ProductsList>
         {products.map((product) => (
-          <Product product={product} key={product.id} outlet={<Outlet />} />
+          <Product product={product} key={product.id} />
         ))}
       </ProductsList>
     </>
