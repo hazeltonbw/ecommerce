@@ -15,9 +15,7 @@ function Product({ product }) {
 
   return (
     <ProductContainer>
-      <ImgWrapper>
-        <img src={product.image} alt={product.title} />
-      </ImgWrapper>
+      <img src={product.image} alt={product.title} />
       <LinkButton to={"/products/" + product.id}>
         <h3>{product.title}</h3>
       </LinkButton>

@@ -21,13 +21,11 @@ const Products = () => {
     return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
 
   return (
-    <>
-      <ProductsList>
-        {products.map((product) => (
-          <Product cursor product={product} key={product.id} />
-        ))}
-      </ProductsList>
-    </>
+    <ProductsList>
+      {products.map((product) => (
+        <Product cursor product={product} key={product.id} />
+      ))}
+    </ProductsList>
   );
 };
 

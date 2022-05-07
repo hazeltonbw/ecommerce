@@ -1,4 +1,4 @@
-import { Card, Flex, StyledLink } from "../styles/StyledComponents";
+import { Flex, StyledLink } from "../styles/StyledComponents";
 export default function LandingPage() {
   return (
     <Flex>

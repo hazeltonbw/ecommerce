@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getProducts, getProduct } from "../api/fetchProducts";
+import { getProducts } from "../api/fetchProducts";
 const initialState = {
   error: false,
   isLoading: false,
@@ -19,19 +19,6 @@ export const fetchProducts = createAsyncThunk(
       console.log(err);
     }
     return products;
-  }
-);
-
-export const fetchProduct = createAsyncThunk(
-  "commerceSlice/fetchProduct",
-  async (productId) => {
-    let product;
-    try {
-      product = await getProduct(productId);
-    } catch (err) {
-      console.log(err);
-    }
-    return product;
   }
 );
 

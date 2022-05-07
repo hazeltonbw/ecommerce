@@ -8,7 +8,6 @@ export const GlobalStyles = createGlobalStyle`
     
   }
   
-  // GLOBAL 
   html, body {
     font-family: "Roboto", sans-serif;
     width: 100%;

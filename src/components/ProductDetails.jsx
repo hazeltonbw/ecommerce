@@ -30,9 +30,7 @@ const ProductDetails = () => {
 
   return (
     <ProductContainer>
-      <ImgWrapper>
-        <img src={product.image} alt={product.title} />
-      </ImgWrapper>
+      <img src={product.image} alt={product.title} />
       <TextWrapper>
         <h3>{product.title}</h3>
         <Rating>

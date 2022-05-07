@@ -16,6 +16,9 @@ export const StyledLink = styled(NavLink)`
 
 export const LinkButton = styled(Link)`
   font-family: inherit;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
@@ -34,6 +37,9 @@ export const ProductContainer = styled.div`
 
   img {
     display: block;
+    background: #fff;
+    max-height: 200px;
+    max-width: 400px;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -77,6 +83,7 @@ export const Input = styled.input`
   &:hover {
     border: 2px solid ${({ theme }) => theme.text};
   }
+
 `;
 
 export const Button = styled.button`
@@ -149,11 +156,20 @@ export const Flex = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
+  img {
+    display: block;
+    background: #fff;
+    max-height: 200px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `;
 
 export const Card = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
 `;
 
 export const TextWrapper = styled.div`
@@ -167,6 +183,14 @@ export const TextWrapper = styled.div`
 export const Quantity = styled.input`
   padding: 0.5rem 0px 0.5rem 0.7rem;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: center;
+`;
+
+export const SideBar = styled.div`
+  position: sticky;
+  top: 25px;
+  min-width: 20ch;
+  display: flex;
+  justify-content: center;
 `;
