@@ -31,16 +31,8 @@ export const ProductContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.product.border};
   gap: 10px;
   text-align: center;
-  a,
-  img,
-  h3,
-  svg,
-  button {
-    cursor: ${({ cursor }) => (cursor ? "pointer" : "inherit")};
-  }
 
   img {
-    width: 100%;
     display: block;
     width: 100%;
     height: 100%;
@@ -58,7 +50,13 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.nav.background};
-  padding: 0.8rem 111px;
+  // padding: 0.8rem 111px;
+  padding: 5px;
+  column-gap: 5px;
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const Form = styled.form`
@@ -83,9 +81,10 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   position: relative;
-  left: -34px;
-  top: 2px;
+  left: -24px;
+  top: 4px;
   height: 1rem;
+  cursor: pointer;
   border-radius: 0.5rem;
   border: 2px solid transparent;
   font-size: 1rem;
@@ -123,6 +122,10 @@ export const ProductsList = styled.section`
     font-family: inherit;
     font-size: 1rem;
   }
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -132,15 +135,16 @@ export const ImgWrapper = styled.div`
 
 export const Rating = styled.span`
   color: orange;
-
   // Span inside is count of ratings
   span {
     color: white;
   }
+  cursor: pointer;
 `;
 
 export const Flex = styled.div`
   display: flex;
+  flex-direction: column;
   padding: 0.5rem;
   width: 100%;
   align-items: center;
@@ -148,9 +152,7 @@ export const Flex = styled.div`
 `;
 
 export const Card = styled.div`
-  height: 33vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
 `;
 

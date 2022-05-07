@@ -22,19 +22,14 @@ const ProductDetails = () => {
   const product = useSelector(selectProducts)[id - 1];
   const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(setQuantity(e.target[0].value));
     dispatch(addProductToCart(product));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //console.log(e.target[0].value);
-    dispatch(setQuantity(e.target[0].value));
-    handleAddToCart();
-  };
-
   return (
-    <ProductContainer noPointer>
+    <ProductContainer>
       <ImgWrapper>
         <img src={product.image} alt={product.title} />
       </ImgWrapper>

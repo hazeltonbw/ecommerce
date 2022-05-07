@@ -24,7 +24,7 @@ const Products = () => {
     <>
       <ProductsList>
         {products.map((product) => (
-          <Product product={product} key={product.id} />
+          <Product cursor product={product} key={product.id} />
         ))}
       </ProductsList>
     </>
