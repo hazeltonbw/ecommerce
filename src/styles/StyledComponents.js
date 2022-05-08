@@ -136,8 +136,8 @@ export const ProductsList = styled.section`
 `;
 
 export const ImgWrapper = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 `;
 
 export const Rating = styled.span`
@@ -167,6 +167,17 @@ export const Flex = styled.div`
   }
 `;
 
+export const FlexRow = styled(Flex)`
+  flex-direction: row;
+  text-align: center;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  justify-content: flex-start;
+  gap: 30px;
+`;
+
 export const Card = styled.div`
   display: flex;
   align-items: baseline;
@@ -193,4 +204,19 @@ export const SideBar = styled.div`
   min-width: 20ch;
   display: flex;
   justify-content: center;
+`;
+
+export const CheckoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  margin: 10px;
+  gap: 30px;
+  justify-content: flex-start;
+
+  @media (max-width: 678px) {
+    ${FlexRow} {
+      flex-direction: column;
+    }
+  }
 `;

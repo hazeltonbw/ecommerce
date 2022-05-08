@@ -23,7 +23,9 @@ const Cart = () => {
   if (Object.keys(cart).length === 0) {
     return (
       <Flex>
-        <h1 style={{ textAlign: "center" }}>Nothing in your cart!</h1>
+        <h1 style={{ textAlign: "center", margin: "10px" }}>
+          Nothing in your cart!
+        </h1>
         <LinkButton to="/products">Check out our products here</LinkButton>
       </Flex>
     );
@@ -31,6 +33,7 @@ const Cart = () => {
 
   return (
     <>
+      <h1 style={{ margin: "10px" }}>My Cart</h1>
       <Card>
         <ProductsList>
           {Object.keys(cart).map((productId) => {

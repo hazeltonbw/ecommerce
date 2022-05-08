@@ -33,7 +33,7 @@ const Home = ({ theme, setTheme }) => {
           <CartIcon nav size="2rem" />
         </NavLink>
       </Nav>
-      <main>
+      <main style={{ margin: "10px" }}>
         <Outlet />
       </main>
     </>
