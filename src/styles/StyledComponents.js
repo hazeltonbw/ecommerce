@@ -28,10 +28,10 @@ export const LinkButton = styled(Link)`
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-
   padding: 0px 0.5rem;
   align-items: center;
-  border: 1px solid ${({ theme }) => theme.product.border};
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.border};
   gap: 10px;
   text-align: center;
 
@@ -56,9 +56,8 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.nav.background};
-  // padding: 0.8rem 111px;
-  padding: 5px;
-  column-gap: 5px;
+  padding: 0.5rem;
+  column-gap: 10px;
 
   svg {
     cursor: pointer;
@@ -71,7 +70,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  padding: 0.2rem 0.8rem;
+  padding: 0.5rem 0.2rem;
   border-radius: 8px;
   border: ${({ theme }) => theme.inputBorder};
   font-size: 1rem;
@@ -89,7 +88,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   position: relative;
   left: -24px;
-  top: 4px;
+  top: 9px;
   height: 1rem;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -159,10 +158,9 @@ export const Flex = styled.div`
   img {
     display: block;
     background: #fff;
-    max-height: 200px;
+    height: 200px
     max-width: 400px;
     width: 100%;
-    height: 100%;
     object-fit: contain;
   }
 `;
@@ -175,6 +173,7 @@ export const FlexRow = styled(Flex)`
     height: 200px;
   }
   justify-content: flex-start;
+  align-items: flex-start;
   gap: 30px;
 `;
 
@@ -184,14 +183,13 @@ export const Card = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  width: 45ch;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
 `;
 
-export const Quantity = styled.input`
+export const QuantityInput = styled.input`
   padding: 0.5rem 0px 0.5rem 0.7rem;
   border-radius: 0.5rem;
   font-size: 1.2rem;
@@ -203,20 +201,50 @@ export const SideBar = styled.div`
   top: 25px;
   min-width: 20ch;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 0.5rem;
 `;
 
 export const CheckoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.border};
   margin: 10px;
   gap: 30px;
   justify-content: flex-start;
+
+  ${FlexRow} {
+    align-items: center;
+  }
 
   @media (max-width: 678px) {
     ${FlexRow} {
       flex-direction: column;
     }
+  }
+`;
+export const Title = styled.h4`
+  flex: 3;
+`;
+
+export const Quantity = styled.h4`
+  flex: 1;
+`;
+
+export const HeaderText = styled.h1`
+  margin: 10px;
+`;
+
+export const Price = styled(Quantity)``;
+
+export const CheckoutForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px;
+
+  ${Input} {
+    width: 50ch;
   }
 `;

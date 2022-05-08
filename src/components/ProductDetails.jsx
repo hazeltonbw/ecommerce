@@ -7,13 +7,12 @@ import {
 } from "../store/commerceSlice";
 import {
   ProductContainer,
-  ImgWrapper,
   TextWrapper,
   Rating,
   EditCart,
   CartIcon,
   Flex,
-  Quantity,
+  QuantityInput,
 } from "../styles/StyledComponents";
 import { numToStar } from "../helpers/numToStar";
 
@@ -44,14 +43,14 @@ const ProductDetails = () => {
         <Flex>
           <span>Quantity:</span>
           <form onSubmit={handleSubmit}>
-            <Quantity
+            <QuantityInput
               type="number"
               id="quantity"
               name="quantity"
               min="1"
               max="999"
               required
-            ></Quantity>
+            ></QuantityInput>
 
             <EditCart type="submit">
               Add to cart

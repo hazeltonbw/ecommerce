@@ -9,17 +9,13 @@ import {
   LinkButton,
   Card,
   SideBar,
+  HeaderText,
 } from "../styles/StyledComponents";
 
 import { removeProductFromCart } from "../store/commerceSlice";
 const Cart = () => {
-  const cart = useSelector(selectCart);
   const dispatch = useDispatch();
-
-  const handleRemoveFromCart = (productId) => {
-    dispatch(removeProductFromCart(productId));
-  };
-
+  const cart = useSelector(selectCart);
   if (Object.keys(cart).length === 0) {
     return (
       <Flex>
@@ -31,14 +27,19 @@ const Cart = () => {
     );
   }
 
+  const handleRemoveFromCart = (productId) => {
+    dispatch(removeProductFromCart(productId));
+  };
+
   return (
     <>
-      <h1 style={{ margin: "10px" }}>My Cart</h1>
+      <HeaderText>My Cart</HeaderText>
+      <hr></hr>
       <Card>
         <ProductsList>
-          {Object.keys(cart).map((productId) => {
+          {Object.keys(cart).map((productId, index) => {
             return (
-              <Flex>
+              <Flex key={index}>
                 <Product
                   product={cart[productId]}
                   key={productId}

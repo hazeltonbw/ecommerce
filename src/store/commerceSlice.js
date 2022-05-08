@@ -5,7 +5,6 @@ const initialState = {
   isLoading: false,
   products: [],
   cart: {},
-  product: {},
   quantity: 1,
 };
 
@@ -27,13 +26,13 @@ const { actions, reducer } = createSlice({
   initialState: initialState,
   reducers: {
     addProductToCart: (state, action) => {
-      for (let i = 0; i < state.quantity; i++) {
-        // state.cart.push(action.payload);
-        state.cart[action.payload.id] = {
-          ...action.payload,
-          quantity: state.quantity,
-        };
-      }
+      //.for (let i = 0; i < state.quantity; i++) {
+      // state.cart.push(action.payload);
+      state.cart[action.payload.id] = {
+        ...action.payload,
+        quantity: state.quantity,
+      };
+      //}
     },
     setQuantity: (state, action) => {
       state.quantity = action.payload;
@@ -41,6 +40,9 @@ const { actions, reducer } = createSlice({
     removeProductFromCart: (state, action) => {
       state.cart[action.payload] = {};
       delete state.cart[action.payload];
+    },
+    clearState: (state) => {
+      return initialState;
     },
   },
   extraReducers: (builder) => {
@@ -60,7 +62,12 @@ const { actions, reducer } = createSlice({
   },
 });
 
-export const { addProductToCart, setQuantity, removeProductFromCart } = actions;
+export const {
+  addProductToCart,
+  setQuantity,
+  removeProductFromCart,
+  clearState,
+} = actions;
 
 export const selectProducts = (state) => state.commerceSlice.products;
 export const selectCart = (state) => state.commerceSlice.cart;

@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   
   html, body {
     font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
     width: 100%;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};

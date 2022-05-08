@@ -30,8 +30,6 @@ export const darkTheme = {
     },
   },
   iconFill: "#22272e",
-  product: {
-    border: "rgb(245 245 245 / 10%)",
-  },
+  border: "rgb(245 245 245 / 20%)",
   linkColor: "#d4d4f9",
 };
