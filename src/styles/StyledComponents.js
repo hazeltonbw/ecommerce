@@ -143,7 +143,7 @@ export const Rating = styled.span`
   color: orange;
   // Span inside is count of ratings
   span {
-    color: white;
+    color: ${({ theme }) => theme.text};
   }
   cursor: pointer;
 `;
