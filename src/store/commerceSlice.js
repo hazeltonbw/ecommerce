@@ -26,16 +26,13 @@ const { actions, reducer } = createSlice({
   initialState: initialState,
   reducers: {
     addProductToCart: (state, action) => {
-      //.for (let i = 0; i < state.quantity; i++) {
-      // state.cart.push(action.payload);
       state.cart[action.payload.id] = {
         ...action.payload,
         quantity: state.quantity,
       };
-      //}
     },
     setQuantity: (state, action) => {
-      state.quantity = action.payload;
+      state.quantity = parseInt(action.payload);
     },
     removeProductFromCart: (state, action) => {
       state.cart[action.payload] = {};
@@ -70,5 +67,6 @@ export const {
 } = actions;
 
 export const selectProducts = (state) => state.commerceSlice.products;
+export const selectQuantity = (state) => state.commerceSlice.quantity;
 export const selectCart = (state) => state.commerceSlice.cart;
 export default reducer;

@@ -4,6 +4,7 @@ import {
   selectProducts,
   addProductToCart,
   setQuantity,
+  selectQuantity,
 } from "../store/commerceSlice";
 import {
   ProductContainer,
@@ -15,16 +16,19 @@ import {
   QuantityInput,
 } from "../styles/StyledComponents";
 import { numToStar } from "../helpers/numToStar";
+import NumericInput from "react-numeric-input";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = useSelector(selectProducts)[id - 1];
+  const quantity = useSelector(selectQuantity);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setQuantity(e.target[0].value));
     dispatch(addProductToCart(product));
+    dispatch(setQuantity(1));
   };
 
   return (
@@ -43,15 +47,27 @@ const ProductDetails = () => {
         <Flex>
           <span>Quantity:</span>
           <form onSubmit={handleSubmit}>
-            <QuantityInput
+            {/* <QuantityInput
               type="number"
               id="quantity"
               name="quantity"
               min="1"
               max="999"
+              value={quantity}
+              onChange={handleChange}
               required
-            ></QuantityInput>
-
+            ></QuantityInput> */}
+            <NumericInput
+              min={1}
+              max={99}
+              value={quantity}
+              style={{
+                input: {
+                  width: "7ch",
+                  padding: "0.5rem 0px 0.5rem 0.7rem",
+                },
+              }}
+            />
             <EditCart type="submit">
               Add to cart
               <CartIcon size="1.2rem" />
