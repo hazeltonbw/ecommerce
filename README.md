@@ -28,6 +28,9 @@
 
 [![Shoppo Logo][product-logo]](https://funny-elf-0ba76e.netlify.app/)
 
+## About The Project
+This front-end eCommerce application was made to learn more about React-Router, Styled components, and ReduxJS Toolkit.
+See [Roadmap](#roadmap) for planned future implementations.
 
 ### Built With
 
@@ -51,11 +54,11 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1. Clone the repo
-   ```sh
+   ```bash
    git clone https://github.com/hazeltonbw/ecommerce.git
    ```
 2. Install npm packages
-   ```sh
+   ```bash
    npm install
    ```
 
@@ -66,7 +69,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 Run development build
-```sh
+```bash
 npm start
 ```
 
