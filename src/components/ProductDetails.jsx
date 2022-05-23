@@ -13,7 +13,6 @@ import {
   EditCart,
   CartIcon,
   Flex,
-  QuantityInput,
 } from "../styles/StyledComponents";
 import { numToStar } from "../helpers/numToStar";
 import NumericInput from "react-numeric-input";
