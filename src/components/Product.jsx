@@ -6,7 +6,7 @@ import { ProductContainer, Rating } from "../styles/StyledComponents";
 function Product({ product }) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`${product.id}`);
+    navigate(`/products/${product.id}`);
   };
 
   return (
