@@ -16,7 +16,7 @@ import { removeProductFromCart } from "../store/commerceSlice";
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-  if (Object.keys(cart).length === 0) {
+  if (cart.length === 0) {
     return (
       <Flex>
         <h1 style={{ textAlign: "center", margin: "10px" }}>
@@ -37,29 +37,26 @@ const Cart = () => {
       <hr></hr>
       <Card>
         <ProductsList>
-          {Object.keys(cart).map((productId, index) => {
-            return (
+          {
+          cart.map((product, index)=> (
               <Flex key={index}>
                 <Product
-                  product={cart[productId]}
-                  key={productId}
+                  product={product}
+                  key={product.id}
                   showingCart
                 />
                 <Card>
                   <h3>Quantity: </h3>
-                  <span>&nbsp;{cart[productId].quantity}</span>
+                  <span>&nbsp;{product.quantity}</span>
                 </Card>
-                <EditCart
-                  onClick={() => {
-                    handleRemoveFromCart(productId);
-                  }}
-                >
+                <EditCart onClick={() => handleRemoveFromCart(product.id)}>
                   Remove from cart
                   <CartIcon size="1.2rem" />
                 </EditCart>
               </Flex>
-            );
-          })}
+              ))
+        }
+
         </ProductsList>
         <SideBar>
           <LinkButton to="/checkout" style={{ position: "sticky", top: 0 }}>
