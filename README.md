@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://funny-elf-0ba76e.netlify.app/">View Demo</a>
+    <a href="https://bwhshoppo.netlify.app/">View Demo</a>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -26,7 +26,7 @@
 
 <br>
 
-[![Shoppo Logo][product-logo]](https://funny-elf-0ba76e.netlify.app/)
+[![Shoppo Logo][product-logo]](https://bwhshoppo.netlify.app/)
 
 ## About The Project
 This front-end eCommerce application was made to learn more about React-Router, Styled components, and ReduxJS Toolkit.
