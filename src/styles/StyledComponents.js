@@ -59,6 +59,10 @@ export const ProductContainer = styled.div`
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `
 
 export const Nav = styled.nav`
