@@ -54,7 +54,7 @@ const ProductDetails = () => {
               value={quantity}
               style={{
                 input: {
-                  width: "7ch",
+                  width: "10ch",
                   padding: "0.5rem 0px 0.5rem 0.7rem",
                 },
               }}
