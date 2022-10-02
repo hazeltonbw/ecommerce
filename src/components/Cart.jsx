@@ -12,6 +12,8 @@ import {
   HeaderText,
 } from "../styles/StyledComponents";
 
+import { AiOutlineArrowRight } from "react-icons/ai"
+
 import { removeProductFromCart } from "../store/commerceSlice";
 const Cart = () => {
   const dispatch = useDispatch();
@@ -60,7 +62,7 @@ const Cart = () => {
         </ProductsList>
         <SideBar>
           <LinkButton to="/checkout" style={{ position: "sticky", top: 0 }}>
-            Proceed to checkout
+            Proceed to checkout <AiOutlineArrowRight />
           </LinkButton>
         </SideBar>
       </Card>

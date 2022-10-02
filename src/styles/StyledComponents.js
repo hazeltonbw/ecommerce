@@ -20,6 +20,7 @@ export const LinkButton = styled(Link)`
   border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 1rem;
+  vertical-align: middle;
   text-align: center;
   text-decoration: none;
   color: ${({ theme }) => theme.linkColor};
