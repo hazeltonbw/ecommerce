@@ -8,7 +8,9 @@ import {
 } from "../store/commerceSlice";
 import {
   ProductContainer,
+  Description,
   TextWrapper,
+  Category,
   Rating,
   EditCart,
   CartIcon,
@@ -31,7 +33,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <ProductContainer>
+    <ProductContainer detailsLayout={true}>
       <img src={product.image} alt={product.title} />
       <TextWrapper>
         <h3>{product.title}</h3>
@@ -39,23 +41,13 @@ const ProductDetails = () => {
           {numToStar(product.rating.rate)} <span>{product.rating.count}</span>
         </Rating>
         <h4>${product.price.toFixed(2)}</h4>
-        <h4
-          style={{ textTransform: "capitalize" }}
-        >{`Category: ${product.category}`}</h4>
-        <h4>{product.description}</h4>
+        <Category>
+          {`Category: ${product.category}`}
+        </Category>
+        <Description>{product.description}</Description>
         <Flex>
           <span>Quantity:</span>
           <form onSubmit={handleSubmit}>
-            {/* <QuantityInput
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="999"
-              value={quantity}
-              onChange={handleChange}
-              required
-            ></QuantityInput> */}
             <NumericInput
               min={1}
               max={99}

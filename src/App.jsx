@@ -9,7 +9,6 @@ import Home from "./components/Home";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/globalStyles";
 import { darkTheme, lightTheme } from "./styles/theme";
-import LandingPage from "./components/LandingPage";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -18,7 +17,7 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Home theme={theme} setTheme={setTheme} />}>
-          <Route index element={<LandingPage />} />
+          <Route index element={<Products />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:id" element={<ProductDetails />} />
           <Route path="cart" element={<Cart />} />
